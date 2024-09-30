@@ -63,32 +63,77 @@ namespace Rendeles_Forms_lymyr6
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            treeViewKategoriak.SelectedNode.BeginEdit();
+            if (treeViewKategoriak.SelectedNode != null)
+            {
+                treeViewKategoriak.SelectedNode.BeginEdit();
+            }
+            
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-
+            LoadKategoriak();
         }
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
+            TermekKategoria termekKategoria = new TermekKategoria();
+            termekKategoria.Nev = "Új Kategória";
+            termekKategoria.SzuloKategoriaId = null;
+            _context.TermekKategoria.Add(termekKategoria);
+            _context.SaveChanges();
+
+            TreeNode node = new TreeNode(termekKategoria.Nev);
+            node.Tag = termekKategoria;
+            treeViewKategoriak.Nodes.Add(node);
+
+            treeViewKategoriak.SelectedNode = node;
 
         }
 
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
         {
+            TermekKategoria termekKategoria = new TermekKategoria();
+            termekKategoria.Nev = "Új alkategória";
+            termekKategoria.SzuloKategoriaId = ((TermekKategoria)treeViewKategoriak.SelectedNode.Tag).KategoriaId;
+            _context.TermekKategoria.Add(termekKategoria);
+            _context.SaveChanges();
 
+            TreeNode node = new TreeNode(termekKategoria.Nev);
+            node.Tag = termekKategoria;
+            treeViewKategoriak.Nodes.Add(node);
+
+            treeViewKategoriak.SelectedNode = node;
         }
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
         {
+            if (treeViewKategoriak.SelectedNode.Nodes.Count == 0)
+            {
+                TermekKategoria kategoria = (TermekKategoria)treeViewKategoriak.SelectedNode.Tag;
+                _context.TermekKategoria.Remove(kategoria);
+                _context.SaveChanges();
+
+                treeViewKategoriak.SelectedNode.Remove();
+            }
+            else
+            {
+                MessageBox.Show("Nem törölhető a kategória, mivel van alkategóriája!");
+            }
+
+
+
 
         }
 
         private void treeViewKategoriak_AfterLabelEdit(object sender, NodeLabelEditEventArgs e)
         {
-            
+            if (e.Label != null && !string.IsNullOrEmpty(e.Label))
+            {
+                TermekKategoria kategoria = (TermekKategoria)e.Node.Tag;
+                kategoria.Nev = e.Label;
+                _context.SaveChanges();
+            }
         }
     }
 }

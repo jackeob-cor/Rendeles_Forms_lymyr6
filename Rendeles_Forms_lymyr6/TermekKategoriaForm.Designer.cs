@@ -61,41 +61,41 @@
             // 
             contextMenuStripKategoria.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1, toolStripMenuItem2, toolStripMenuItem3, toolStripMenuItem4, toolStripMenuItem5 });
             contextMenuStripKategoria.Name = "contextMenuStripKategoria";
-            contextMenuStripKategoria.Size = new Size(151, 114);
+            contextMenuStripKategoria.Size = new Size(181, 136);
             // 
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(150, 22);
+            toolStripMenuItem1.Size = new Size(180, 22);
             toolStripMenuItem1.Text = "Átnevezés";
             toolStripMenuItem1.Click += toolStripMenuItem1_Click;
             // 
             // toolStripMenuItem2
             // 
             toolStripMenuItem2.Name = "toolStripMenuItem2";
-            toolStripMenuItem2.Size = new Size(150, 22);
-            toolStripMenuItem2.Text = "Új Főkategória";
+            toolStripMenuItem2.Size = new Size(180, 22);
+            toolStripMenuItem2.Text = "Frissites";
             toolStripMenuItem2.Click += toolStripMenuItem2_Click;
             // 
             // toolStripMenuItem3
             // 
             toolStripMenuItem3.Name = "toolStripMenuItem3";
-            toolStripMenuItem3.Size = new Size(150, 22);
-            toolStripMenuItem3.Text = "Új Alkategória";
+            toolStripMenuItem3.Size = new Size(180, 22);
+            toolStripMenuItem3.Text = "Új Fökategória";
             toolStripMenuItem3.Click += toolStripMenuItem3_Click;
             // 
             // toolStripMenuItem4
             // 
             toolStripMenuItem4.Name = "toolStripMenuItem4";
-            toolStripMenuItem4.Size = new Size(150, 22);
-            toolStripMenuItem4.Text = "Törlés";
+            toolStripMenuItem4.Size = new Size(180, 22);
+            toolStripMenuItem4.Text = "Uj Alkategoria";
             toolStripMenuItem4.Click += toolStripMenuItem4_Click;
             // 
             // toolStripMenuItem5
             // 
             toolStripMenuItem5.Name = "toolStripMenuItem5";
-            toolStripMenuItem5.Size = new Size(150, 22);
-            toolStripMenuItem5.Text = "Frissités";
+            toolStripMenuItem5.Size = new Size(180, 22);
+            toolStripMenuItem5.Text = "Torles";
             toolStripMenuItem5.Click += toolStripMenuItem5_Click;
             // 
             // txtNev
